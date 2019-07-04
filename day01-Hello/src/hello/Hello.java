@@ -19,7 +19,7 @@ public class Hello {
         System.out.println("안녕하세요,자바!");
        
         // 소스 편집 후 항상 저장하는 습관
-        // ctrl + 단축키로 항상 저장
+        // ctrl + s 단축키로 항상 저장
         
         
         
