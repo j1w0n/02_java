@@ -36,7 +36,7 @@ public class FindMax {
 		 }  
 		 System.out.printf("입력된 두 값 x=%d, y=%d 중 큰 값은 %d%n" , x, y, max);
 		 
-		 
+		
 		 
 		 
 		 

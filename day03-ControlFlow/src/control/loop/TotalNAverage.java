@@ -6,9 +6,10 @@ public class TotalNAverage {
 
 	public static void main(String[] args) {
 		// 1. 선언
+		 
 		int total = 0;
 		int score = 0;
-		int count = 0;
+		int count = 0; 
 		
 		double average;
 		
@@ -18,7 +19,7 @@ public class TotalNAverage {
 
 		scan = new Scanner(System.in);
 		
-		System.out.println("점수를 입력(끝내려면 0 입력)");
+		System.out.println("점수를 입력(끝내려면 0 입력)"); 
 		score = scan.nextInt();
 		
 		

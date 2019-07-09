@@ -11,8 +11,15 @@ public class SumOfEvens {
 		int sum = 0;
 
 		while(num <= 100)  {
-			sum += num;
-			num += 2;
+			if(num %2 == 0) {
+			 sum += num;
+	
+			}
+		
+		num++;
+			
+			
+			
 		}
 		
 		//4. 출력
@@ -23,3 +30,10 @@ public class SumOfEvens {
 	}
 
 }
+
+
+
+
+
+
+
