@@ -51,7 +51,7 @@ public class NineNineBreak {
 
 					} // end inner for
 				} // end outer for
- // 전공자 에게 질문해볼게요
+ 
 
 	}
 
