@@ -13,7 +13,7 @@ public class MinMax {
 	public static void main(String[] args) {
 		
 		
-	}
+	
 		// 1. 선언
 	   // 입력받을 변수 선언
 		int x, y;
@@ -50,7 +50,8 @@ public class MinMax {
 	           
 	           
 	           
-	           
+}
+}
 	           
 	           
 	           

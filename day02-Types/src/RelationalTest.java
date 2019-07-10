@@ -27,3 +27,5 @@ public class RelationalTest {
 		// alt + shift + a : 세로줄 편집 기능 토굴
 		// alt + up/down : 행 전체 상하 이동
 		// ctrl + shift + L : 단축키 모음 안내창 오픈 
+	}
+}

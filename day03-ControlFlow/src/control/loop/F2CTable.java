@@ -23,8 +23,8 @@ public class F2CTable {
 		for (fah = 0; fah <= 100; fah+= 10) {
 			 cel = 5.0 / 9.0 * (fah - 32);
 			 System.out.printf("%5.1f F = %5.1f C%n", fah, cel);
-		}      // 마지막줄 이해 안감 ..ㅠ
-		
+		}    
+		 
 		
 		
 		
