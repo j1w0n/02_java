@@ -34,9 +34,45 @@ public class ArrayAndFor {
 		// 4. 합산 출력
 		System.out.printf("원소의 합 : %d%n", summery);
 		
+		// 5.
+		for (int idx = 0; idx < numbers.length; idx++) {
+			numbers[idx] = (idx + 1) * 100;
+		}
+		
+		
+		// 6. foreach 구문으로 출력
+		
+		for (int num : numbers) {
+			System.out.println("num=" + num);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		}
 	}
 
-}
+
 
 
 
