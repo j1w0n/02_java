@@ -1,54 +1,57 @@
-package array.multi;
+package account.two;
 
 /**
- * 동적 2차원 배열을 생성하고 사용해보는 클래스
+ * 계좌(Account 타입) 클래스의
+ * 인스턴스(객체, 실체)를 생성하고
  * 
- * 2차수 배열의 크기는 순서대로
- * 3, 4, 1, 5 로 생성한다.
- * 
- * 생성된 2차 배열안에 숫자를
- * 1 ~ 13까지 할당하고
- * 출력해본다.
+ * 이 때, 중복정의된 생성자를 사용해서
+ * 실체화를 진행하며
+ * 그렇게 생성된 객체에 테스트하는 클래스
  * @author 304
  *
  */
-public class Dynamic2dArray {
+public class AccountTest {
 
 	public static void main(String[] args) {
-		// 1. 선언
-		int[][] twoDArray;
-		int count = 0;
+		// 1. 선언 : 계좌의 객체 참조 변수
+		Account myAccount;
+		Account yourAccount;
+		Account hisAccount;
 		
 		// 2. 초기화
-		twoDArray = new int[4][];
+		// (1) 기본생자로 초기화
+		myAccount = new Account();
+		// (2) 매개변수를 받는 중복정의된 생성자로 초기화
+		yourAccount = new Account(1, 10000);		
+		hisAccount = new Account("2", 30000);
 		
-		for (int[] array: twoDArray) {
-			System.out.println("array=" + array);
-		}
+		// 3. 사용
+		// (1) 계좌 생성되자 마자 초기 상태 출력
+		myAccount.print();
+		yourAccount.print();
+		hisAccount.print();
 		
-		twoDArray[0] = new int[3];
-		twoDArray[1] = new int[4];
-		twoDArray[2] = new int[1];
-		twoDArray[3] = new int[5];
+		// (2) 입금 : 1000원 : 두 계좌에 모두
+		myAccount.deposit(1000);
+		yourAccount.deposit(1000);
 		
-		for (int[] array: twoDArray) {
-			System.out.println("array=" + array);
-		}
+		// (3) 출력 : 두 계좌 모두 출력
+		myAccount.print();
+		yourAccount.print();
 		
-		// 3. 1 ~ 13 까지 데이터 저장 (for)
-		for (int idx = 0; idx < twoDArray.length; idx++) {
-			for (int ind = 0; ind < twoDArray[idx].length; ind++) {
-				twoDArray[idx][ind] = ++count;
-			}
-		}
+		// (4) 입금 : 5000원 
 		
-		// 4. 출력(foreach)
-		for (int[] array: twoDArray) {
-			for (int num: array) {
-				System.out.printf("%d\t", num);
-			}
-			System.out.println();
-		}
+		
+		// (5) 출력 : 두 계좌 모두
+		
+		
+		// (6) 출금 : 4000원
+		String result = myAccount.withdraw(4000);
+		System.out.println(result);
+		
+		
+		// (7) 출력 : 두 계좌 모두
+		
 		
 
 	}

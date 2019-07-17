@@ -17,6 +17,7 @@ public class AccountTest {
 		Account myAccount;
 		Account yourAccount;
 		Account hisAccount;
+		
 		// 2. 초기화
 		// (1) 기본생산자로 초기화
 		myAccount = new Account();
