@@ -18,11 +18,13 @@ package snack;
  *
  */
 public class Oreo {
-
+    // 1. 선언
+	
 	String cream;
 	double radius;
 	double thickness;
 	
+	// 2.
      Oreo() {
 	 
         }
@@ -46,8 +48,10 @@ public class Oreo {
 	 }
 	
 	
-	
-	
+	// 3. 메소드
+	 public void print() {
+		 System.out.printf("오레오 쿠키 상태 [크림의 종류]");
+	 }
 	
 	
 	
