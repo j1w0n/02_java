@@ -52,7 +52,7 @@ public class Marker {
 
 	public Marker(boolean isNew) {
 		this();
-		isNew = isNew;
+		this.isNew = isNew;
 	}
 
 	public Marker(boolean isNew, boolean isOpened) {
