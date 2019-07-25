@@ -51,19 +51,19 @@ public class Product {
 	
 	// 1. 멤버 변수 선언부
 	/** 제품 코드 */
-	String pcode;
+	private String pcode;
 	/** 제품 명 */
-	String pname;
+	private String pname;
 	/** 제품 가격 */
-	int price;
+	private int price;
 	/** 재고 수량 */
-	int quantity;
+	private int quantity;
 	
 	// 2. 생성자 선언부
 	/**
 	 * 기본 생성자
 	 */
-	Product() {
+	public Product() {
 		
 	}
 	
@@ -71,7 +71,7 @@ public class Product {
 	 * 제품 코드 필드만 초기화하는 생성자
 	 * @param pcode
 	 */
-	Product(String pcode) {
+	public Product(String pcode) {
 		this.pcode = pcode;
 	}
 	
@@ -82,7 +82,7 @@ public class Product {
 	 * @param price
 	 * @param quantity
 	 */
-	Product(String pcode, String pname, int price, int quantity) {
+	public Product(String pcode, String pname, int price, int quantity) {
 		this(pcode);
 		this.pname = pname;
 		this.price = price;
@@ -146,14 +146,42 @@ public class Product {
 		return strProduct;
 	}
 	
+	// 수정자 메소드 선언
+	public void setPcode(String pcode) {
+		this.pcode = pcode;
+	}
 	
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
 	
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	
+	// 접근자 메소드
+	public String getPcode() {
+		return pcode;
+	}
 	
+	public String getPname() {
+		return pname;
+	}
 	
+	public int getPrice() {
+		return price;
+	}
 	
-
+	public int getQuantity() {
+		return quantity;
+	}
+	
 }
+
+
 
 
