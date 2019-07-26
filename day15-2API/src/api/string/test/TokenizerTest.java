@@ -1,5 +1,7 @@
 package api.string.test;
 
+import java.util.StringTokenizer;
+
 /**
  * StringTokernizer 클래스를 테스트
  * 
@@ -13,8 +15,26 @@ public class TokenizerTest {
 
 	public static void main(String[] args) {
 		// 1. 선언
-		StringTokernizer token;
+		StringTokenizer token;
 		
+		// 2. 초기화
+		token = new StringTokenizer("안녕하세요, 자바! 재미있게 배워볼까요?");
+		
+		// 3. StringTokenizer 메소드 테스트
+		for (; token.hasMoreTokens();) {
+			System.out.println(token.nextToken());
+		}
+		 
+        //   위의 조건식만 사용한 for 반복과 같은 구문
+		// while (token.hasMoreTokens()) {
+		//	System.out.println(token.nextToken());
+		//}
+		
+		token = new StringTokenizer("안녕하세요, 자바! 재미있게 배워볼까요?", "!");
+		while (token.hasMoreTokens()) {
+		  System.out.println(token.nextToken());
+			}
+	
 	}
 
 }

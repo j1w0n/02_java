@@ -35,7 +35,7 @@ public class StringClasses {
         // (3) 값 변경
         str = str + "자바.";
         builder.append(" 자바");
-        System.out.println(str의 hash);
+        System.out.println("str의 hash");
         
         // (4) 변경 후 각 참조변수 해시 출력
         

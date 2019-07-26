@@ -36,6 +36,8 @@ public class StringBufferTest {
         
         // (3) reverse() : 문자열을 뒤집어서 StringBuffer로 리턴
         System.out.println(buffer.reverse());
+        buffer.reverse();
+      
         
 	}
 
