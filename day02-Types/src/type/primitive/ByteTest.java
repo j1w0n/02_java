@@ -31,7 +31,8 @@ public class ByteTest {
 		
 		// 5. 값의 범위를 벗어나는 값을 저장하려는 시도
 
-		
+		// Type mismatch: cannot convert from int to byte
+//		buffer = 128; 
 		
 		
 		

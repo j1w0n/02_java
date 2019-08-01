@@ -45,41 +45,47 @@ package book;
  * 
  * 만약 멤버변수 필드가 boolean 타입이라면 getter의 이름은
  * get으로 시작하지 않고 is로 시작한다.
- * 
- * 
+ * ==================================================
+ * 1. 캡슐화 적용 : 멤버변수는 private
+ *                  생성자, 메소드는 public
+ *                  
+ * 2. 메소드 재정의 : toString(), 
+ *                    equals() & hashCode() 재정의
+ *                    ==> sequence 필드 기준 재정의  
+ *                    
+ * 3. 메소드 수정 : print() 메소드는 this 객체 출력코드로 변경                                     
+ * ==================================================
  * @author 304
  *
  */
 public class Book {
-	int sequence;
-	String isbn;
-	String title;
-	String author;
-	String company;
-	int totalPage;
-	int price;
-	int quantity;
+	private int sequence;
+	private String isbn;
+	private String title;
+	private String author;
+	private String company;
+	private int totalPage;
+	private int price;
+	private int quantity;
 	
-	Book() {
+	public Book() {
 		
 	}
 	
-	Book(int sequence) {
+	public Book(int sequence) {
 		this();
 		setSequence(sequence);
 	}
 	
-	Book(int sequence, String isbn) {
+	public Book(int sequence, String isbn) {
 		this(sequence);
 		setIsbn(isbn);
 	}
 	
-	Book(int sequence, String isbn, String title) {
+	public Book(int sequence, String isbn, String title) {
 		this(sequence, isbn);
 		this.title = title;
 	}
-	
-	
 	
 	public Book(int sequence, String isbn, String title, String author, String company, int totalPage, int price,
 			int quantity) {
@@ -163,20 +169,44 @@ public class Book {
 	}
 
 	public void print() {
+		System.out.println(this);
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + sequence;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj;
+		if (sequence != other.sequence)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
 		String message = "책 정보[일련번호:%d, ISBN:%s"
-				             + ", 제목:%s, 저자:%s"
-				             + ", 출판사:%s, 페이지:%d"
-				             + ", 가격:%d, 재고:%d]%n";
+	             + ", 제목:%s, 저자:%s"
+	             + ", 출판사:%s, 페이지:%d"
+	             + ", 가격:%d, 재고:%d]";
 		
-		System.out.printf(message, sequence, isbn
-						, title, author, company
-						, totalPage, price, quantity);
-		
+		return String.format(message, sequence, isbn, title, author, company, totalPage, price, quantity);
 	}
 	
 	
+	
+	
 }
-
-
 
 

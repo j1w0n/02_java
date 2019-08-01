@@ -13,7 +13,7 @@ public class Boolean {
 		
 	public static void main(String[] args) {
 		// 1. 선언 
-		boolean isLikeBaseball;
+		boolean isLikeBaseball; 
 		boolean isExists;
 		boolean isHave;
 		boolean isEnd = false; // 선언과 동시에 초기화
