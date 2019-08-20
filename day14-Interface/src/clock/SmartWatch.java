@@ -32,6 +32,6 @@ public abstract class  SmartWatch implements Clock {
 	 // 구현되지 않았으므로 추상클래스로 작성
 	 // ==> 인스턴스화 불가능한 추상클래스가 되며
 	 // ==> 다형성의 타입제공의 의미만 있는 클래스로 된다.
-	 
+	 public abstract void displayTime();
 	 
 }

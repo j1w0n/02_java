@@ -29,9 +29,9 @@ public class VarietyMethods {
 	 * @param maxim : String
 	 */
 	public void maxims(String name, String maxim) {
-		System.out.printf("%s(이)가 말하길 \"%s\"라고 하였다%n"
-				         , name, maxim);
+		System.out.println(name+ "가 말하길  " +maxim+ "라고 하였다.");
 	}
+	
 	
 	/**
 	 * 입력된 화씨온도를 섭씨온도로 변환하여
@@ -43,11 +43,11 @@ public class VarietyMethods {
 	 * @param fah : double 변활할 화씨 온도 값
 	 * @return 변환된 섭씨 온도 값
 	 */
-	public double fahToCel(double fah) {
-		return 5.0 / 9.0 * (fah - 32);
-	}
+	 public double fahTocel(double fah) {
+		 return 5 / 9 * (fah - 32);
+	 }
 
-	// =============================================
+
 	/**
 	 * 어떤 사람의 이름, 생년, 출생월을 매개변수로 받아
 	 * 
@@ -59,7 +59,10 @@ public class VarietyMethods {
 	 * @param year : int
 	 * @param month : int
 	 */
-	
+	 public void birthYearMonth(String name, int year, int month) {
+		System.out.println(name+"(은)는  " +year+ "년  " +month+ "  월 생입니다."); 
+	 }
+
 
 	/**
 	 * 출력할 단의 숫자를 입력받아
@@ -70,6 +73,36 @@ public class VarietyMethods {
 	 * 
 	 * @param stage : int
 	 */
+	 
+	 public void printNineNineTable(int stage) {
+		 System.out.println(stage + " 단 ");
+		 for (int idx =1; idx <= 9; idx++) {
+			 System.out.println(stage+ ("x") +idx);
+		 }
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+//	public void printNineNineTable(int stage) {
+//		 System.out.println("<" +stage+"단>");
+//			for (int idx = 1; idx <= 9; idx++) {
+//				System.out.printf(" %d x %d  = %d%n", stage, idx, stage*idx);
+//			}
+//		} 
+	
 	
 	/**
 	 * 출력할 단의 숫자를 가지고 있는 
@@ -80,6 +113,19 @@ public class VarietyMethods {
 	 * 
 	 * @param stages : int[]
 	 */
+	
+//	public void printNineNineTableFromArray(int[] stage) {
+//		for (int idx = 0; idx < stage.length; idx++) {
+//			System.out.printf("%d 단입니다%n", stage[idx]);
+//			
+//		    	for (int indx = 1; indx <= 9; indx++) {
+//		    		System.out.printf("%d x %d%n", indx * indx);
+//		    	}
+//		}
+//	}
+	   
+	
+
 	
 	/**
 	 * 키(cm), 몸무게(kg)을 매개변수로 입력받아
@@ -100,6 +146,10 @@ public class VarietyMethods {
 	 * @return String 비만도 판정 문자열
 	 */
 	
+	//public String calcBmi(double height, double weight) {
+	//	 int score;
+	 
+	// } 
 	/**
 	 * 입력된 두 정수 중에서 작은 수를 찾아 리턴하는 메소드
 	 * min 을 정의하시오

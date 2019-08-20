@@ -41,8 +41,7 @@ public class ContinueTest {
 					}
 					sum += idx;
 				}
-				System.out.printf("1 ~ 100 사이 3의 배수의 합 : %d%n"
-						, sum);
+				System.out.printf("1 ~ 100 사이 3의 배수의 합 : %d%n", sum);
 		
 		
 		

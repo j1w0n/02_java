@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "mybatis.emp.mapper.EmpMapper">
+  
+   <!-- 직원 정보를 조회하는 쿼리
+        1명의 정보/전체 조회여부를 if 로 분기하는 동적쿼리 -->
+   <select id="select"  parameterType = "Emp" resultType = "Emp">
+	  SELECT e.empno
+	        ,e.ename
+	        ,e.job
+	        ,e.mgr
+	        ,e.hiredate
+	        ,e.comm
+	        ,e.sal
+	        ,e.deptno
+        FROM EMP e
+      <if test="empno != 0"> <!-- 반드시 쌍따옴표, if문 같은것. -->
+      WHERE e.empno = #{empno}
+      </if>      
+  </select>
+  
+  <select id="selectByName" parameterType= "String" resultType ="Emp">
+  SELECT e.empno
+	        ,e.ename
+	        ,e.job
+	        ,e.mgr
+	        ,e.hiredate
+	        ,e.comm
+	        ,e.sal
+	        ,e.deptno
+        FROM EMP e
+      <if test="value !=null">
+      WHERE e.empno LIKE '%' || #{value} || '&'  
+  </select>
+  
+  <select id="selectAll" resultType = "map">
+	  SELECT e.empno
+	        ,e.ename
+	        ,e.job
+	        ,e.mgr
+	        ,e.hiredate
+	        ,e.comm
+	        ,e.sal
+	        ,e.deptno
+        FROM EMP e
+  </select>
+  
+  <select id="selectEmp" parameterType = "int" resultType = "map">
+	  SELECT e.empno
+	        ,e.ename
+	        ,e.job
+	        ,e.mgr
+	        ,e.hiredate
+	        ,e.comm
+	        ,e.sal
+	        ,e.deptno
+        FROM EMP e
+       WHERE e.empno = #{value}
+  </select>
+  
+  <!--  EMP 테이블에 직원 정보 1건 입력  -->
+  <insert id="insert"  parameterType="map">
+	  INSERT INTO EMP e
+		  ( e.empno
+		   ,e.ename
+		   ,e.hiredate
+		   ,e.job
+		  )
+	  VALUES
+	    (  #{empno}
+	     , #{ename}
+	     , SYSDATE
+	     , #{job}
+	     )
+  </insert>
+  
+  <update id="update" parameterType="map">
+	 UPDATE EMP e
+	    SET  e.ename = #{ENAME}
+	       , e.job = #{JOB}
+	       , e.mgr = #{MGR}
+	       , e.hiredate = #{HIREDATE}
+	       , e.sal = #{SAL}
+	       , e.comm = #{COMM}
+	       , e.deptno = #{DEPTNO}
+      WHERE e.empno = #{EMPNO}
+  </update>
+  
+  <!--  EMP 테이블의 직원 정보 1건을 삭제하는 쿼리 -->
+  <delete id="delete" parameterType = "int">
+	  DELETE EMP e
+	   WHERE e.empno = #{value}
+  </delete>
+
+  <!-- 윗쪽 : Map 으로 프로퍼티 설정하는 쿼리 -->
+  
+  <!-- 아래 : Emp 클래스토 프로퍼티 설정하는 쿼리 -->
+  <!-- mybatis-config.xml 파일에 typeAlias 등록 필요함 -->
+  	<select id="selectAll2" resultType="Emp">
+  	    SELECT e.empno
+	        ,e.ename
+	        ,e.job
+	        ,e.mgr
+	        ,e.hiredate
+	        ,e.comm
+	        ,e.sal
+	        ,e.deptno
+        FROM EMP e
+    </select>
+  
+	<select id="selectEmp2" resultType="Emp" parameterType= "Emp">
+	  SELECT e.empno
+	        ,e.ename
+	        ,e.job
+	        ,e.mgr
+	        ,e.hiredate
+	        ,e.comm
+	        ,e.sal
+	        ,e.deptno
+        FROM EMP e
+       WHERE e.empno = #{empno}
+    </select>
+  
+    <insert id="insert2" parameterType= "Emp">
+     INSERT INTO EMP e
+		  ( e.empno
+		   ,e.ename
+		   ,e.hiredate
+		   ,e.job
+		  )
+	  VALUES
+	    (  #{empno}
+	     , #{ename}
+	     , SYSDATE
+	     , #{job}
+	     )
+    </insert>
+    <!-- 수정할 컬럼별로 if 조건을 걸어서
+          동적 쿼리로 작성한 update 구문 -->
+    <update id="Update2" parameterType ="Emp">
+     UPDATE EMP e
+	    <set> 
+	     <if test="ename != null">
+	     	e.ename    = {#ename}
+	     </if>
+	     <if test="job != null">
+	     ,	e.job    = {#job}
+	     </if>
+	     <if test="mgr != 0">
+	     ,	e.mgr    = {#mgr}
+	     </if>
+	     <if test="hiredate != null">
+	     ,	e.hiredate = TO_DATE(#{hiredate}, 'YYYY-MM-DD HH:24:MI:SS)
+	     </if>
+	     <if test="sal > 0">
+	     ,	e.sal    = {#sal}
+	     </if>
+	     <if test="comm > 0">
+	     ,	e.comm    = {#comm}
+	     </if>
+	     <if test="deptno != 0">
+	     ,	e.deptno    = {#deptno}
+	     </if>
+	    </set>
+	    <trim prefix= "SET" prefixOverrides=","/>
+	   WHERE e.empno = #{empno}
+    </update>
+	
+	 <!-- 파라미터의 모든 멤버변수가 설정되어야만 실행되는 정적 쿼리 -->
+	 <update id="update3" parameterType ="Emp">
+     UPDATE EMP e
+	    Set	e.ename    = {#ename}
+	     ,	e.job  	   = {#job}
+	     ,	e.mgr      = {#mgr}
+	     ,	e.hiredate = TO_DATE(#{hiredate}, 'YYYY-MM-DD HH:24:MI:SS)
+	     ,	e.sal      = {#sal}
+	     ,	e.comm     = {#comm}
+	     ,	e.deptno   = {#deptno}
+	     WHERE e.empno = #{empno}
+	    </trim>
+    </update>
+	<!-- 사번:empno 가 0으로 입력되는 경우는 전체 삭제로 작동
+		 사변:empno 가 0이 아닌 값이 입력되는 경우는
+		 	  한 건 삭제로 작동하는 동적 쿼리 -->
+    <delete id="delete2" parameterType = "Emp">
+    	DELETE EMP e
+    	<if test="empno != 0">
+	   WHERE e.empno = #{empno}
+    	</if>
+    </delete>   
+     
+</mapper>
+
+ 
+
+
+

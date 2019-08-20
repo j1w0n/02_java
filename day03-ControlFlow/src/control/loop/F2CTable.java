@@ -18,7 +18,7 @@ public class F2CTable {
 			 System.out.printf("%5.1f F = %5.1f C%n", fah, cel);
 		}
 		
-		// 여러가지 방법으로 for를 쓸 수 이땅.
+		// 여러가지 방법으로 for를 쓸 수 있다
 		
 		for (fah = 0; fah <= 100; fah+= 10) {
 			 cel = 5.0 / 9.0 * (fah - 32);

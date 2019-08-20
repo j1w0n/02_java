@@ -23,41 +23,78 @@ package snack;
  */
 public class Oreo {
 
-	// 1. 멤버변수 선언
+	// 1. 변수 선언
+	// 쿠키 일련번호 int seq; 추가
+	int seq;   
 	String cream;
-	double radius;
-	double thickness;
+    double radius;
+    double thickness;
 	
-	// 2. 생성자 중복정의
+	// 2. 생성자 정의
 	Oreo() {
 		
 	}
-	
-	Oreo(String cream) {
+     
+	// 생성자 seq 필드에 대해 중복정의
+	Oreo(int seq) {
 		this();
+		this.seq = seq;
+	}
+
+	Oreo(int seq, String cream) {
+		this(seq);
 		this.cream = cream;
 	}
 	
-	Oreo(String cream, double radius) {
-		this(cream);
+	Oreo(int seq, String cream, double radius) {
+		this(seq, cream);
 		this.radius = radius;
 	}
 	
-	Oreo(String cream, double radius, double thickness) {
-		this(cream, radius);
+	Oreo(int seq, String cream, double radius, double thickness) {
+		this(seq, cream, radius);
 		this.thickness = thickness;
 	}
 	
-	// 3. 메소드
+	// 3. 메소드 선언
 	public void print() {
-		System.out.printf("오레오 쿠키 상태 [크림의 종류:%s"
-				 + ", 반지름: %4.1f, 두께: %4.1f] %n"
-				  , cream, radius, thickness);
+		System.out.println("오레오의 상태 크림 :" +cream+ "반지름 :" +radius+ "두께 :" +thickness+"" );
 	}
 	
 	public void changeCream(String cream) {
 		this.cream = cream;
+		
 	}
 	
+	public int getSeq() {
+		return seq;
+	}
+	
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+	
+	public String getCream() {
+		return cream;
+	}
+	
+	public void setCream(String cream) {
+		this.cream = cream;
+	}
+	
+	public double getRadius(double radius) {
+		return radius;
+	}
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
+	
+	public double getThickness() {
+		return thickness;
+	}
+	
+	public void setThickness(double thickness) {
+		this.thickness = thickness;
+	}
 }
 

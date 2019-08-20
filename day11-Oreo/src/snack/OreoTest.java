@@ -21,32 +21,49 @@ public class OreoTest {
 
 	public static void main(String[] args) {
 		// 1. 선언, 2. 초기화
-		Oreo[] oreos = new Oreo[0];
-		
-		OreoBox box = new OreoBox(oreos);
-		
-		oreo choco = new Oreo("초코");
-		oreo strawberry = new Oreo("딸기");
-		oreo greentea = new Oreo("말차");
+				Oreo[] oreos = new Oreo[0];
+				
+				OreoBox box = new OreoBox(oreos);
+				
+				Oreo choco      = new Oreo(1, "초코");
+				Oreo strawberry = new Oreo(2, "딸기");
+				Oreo greentea   = new Oreo(3, "말차");
 
-		// 3. 사용
-		// (1) 생성 직후 상태 출력
-		for (Oreo oreo: box.getAllOreos()) {
-			oreo.print();
-		}
-		
-		// (2) 모두 바닐라 크림을 변경
-		for (int idx = 0; idx < box.getAllOreos().length; idx++) {
-			oreoBox[idx].changeCream("바닐라");
-		}
-		
-		System.out.println("===========================");
-		
-		// (3) 바닐라 크림 변경 후 출력
-		for (Oreo oreo: oreos) {
-			oreo.print();
-		}
+				// 3. 사용
+				// add 기능 테스트
+				box.add(choco);
+				box.add(strawberry);
+				box.add(greentea);
+				
+				// 생성 직후 상태 출력
+				for (Oreo oreo: box.getAllOreos()) {
+					oreo.print();
+				}
+				
+				// 초코 쿠키 (1번 쿠키)를 바닐라로 변경 : set
+				
+				
+				// 변경된 초코쿠키 (1번 쿠키) :get
+				
+				
+				// 전체 크림 변경
+				for (Oreo oreo: box.getAllOreos()) {			
+					oreo.changeCream("바닐라");
+				}
+				
+				System.out.println("===========================");
+				
+				// 바닐라 크림 변경 후 출력
+				for (Oreo oreo: oreos) {
+					oreo.print();
+				}
+				
+				
+				// 3번 쿠키 삭제 : remove
+				
+				// 전체 목록 출력 
+				
+			}
+
 		
 	}
-
-}

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace = "mybatis.member.mapper.MemberMapper"> 
+ 
+   <!-- 전체 member 조회 -->
+     <select id="selectAll" resultType = "Member">
+	  SELECT m.member_id
+	       , m.member_name
+	       , m.phone
+	       , m.reg_date
+	       , m.address
+	       , m.major
+	       , m.birth_month
+	       , m.gender
+	   FROM member m
+   ORDER BY m.member_id
+     </select>
+  
+    <!-- member 1명 조회 -->
+     <select id="selectMember" parameterType = "String" resultType = "Member">
+	  SELECT m.member_id
+	       , m.member_name
+	       , m.phone
+	       , m.reg_date
+	       , m.address
+	       , m.major
+	       , m.birth_month
+	       , m.gender
+	    FROM member m
+	   WHERE member_id = #{memberid}
+    </select>
+  
+   <!-- member 1명 추가 -->
+    <insert id="insertMember" parameterType="Member">
+      INSERT INTO Member m
+		  ( m.member_id
+		  , m.member_name
+		  , m.phone
+		  , m.address
+		  )
+	  VALUES
+	     (  #{memberid}
+		  , #{membername}
+		  , #{phone}
+		  , #{address}
+		  )
+    </insert>
+   
+    <update id="updateMember" parameterType="Member">
+      Update Member m
+         Set  m.member_name = #{membername}
+	        , m.phone = #{phone}
+	        , m.reg_date = sysdate
+	        , m.address = #{address}
+	        , m.major = #{major}
+	        , m.birth_month = #{birthmonth}
+	        , m.gender = #{gender}
+	   WHERE m.member_id = #{memberid}
+    </update>
+  
+   <!-- member 1명의 정보 삭제 -->
+    <delete id="deleteMember" parameterType="String">
+     DELETE Member m
+      WHERE member_id = #{memberid}
+    </delete>
+  
+  
+  </mapper>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

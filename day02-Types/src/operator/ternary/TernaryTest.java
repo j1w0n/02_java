@@ -17,7 +17,8 @@ import java.util.Scanner;
  *
  */
 public class TernaryTest {
-
+ 
+       
 	public static void main(String[] args) {
 		// 1. 선언, 2.초기화
         int x = 10;
@@ -41,8 +42,7 @@ public class TernaryTest {
         // 2. 스캐너 및 변수 초기화
         scan = new Scanner(System.in);
         
-        // 무엇을 입력할지 알려주는 메시지 출력
-        System.out.println("정수를 입력하세요");
+        // 무엇을 입력할지 알려주는 메시지세요");
         z = scan.nextInt();
         
         absZ =(z >= 0) ? z : -z;

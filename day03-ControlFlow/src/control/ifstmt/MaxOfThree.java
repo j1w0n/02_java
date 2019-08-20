@@ -36,7 +36,7 @@ public class MaxOfThree {
 		// 3. 사용
 
 		if (num1 > num2) {
-			// num1 이 클 때 진입
+			// num1 이 가장 클때 
 			if (num1 > num3) {
 				max = num1;
 			} else {

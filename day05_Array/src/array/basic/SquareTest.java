@@ -28,6 +28,7 @@ public class SquareTest {
 		
 		// 3. 실행 
 		for (int idx = 1; idx <= numbers.length; idx ++) {
+			numbers[idx] = idx+1;
 			System.out.printf("%d%n" , idx);  //전통적인 for 구문
 			
 		}
